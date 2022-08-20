@@ -77,7 +77,7 @@ public class Maze extends JFrame {
                                 result=true;
                             }
                             for (Node neighbor :  currentNode.getNeighbors()) {
-                                if (!neighbor.isVisited()&& isEmpty(neighbor))
+                                if (!neighbor.isVisited())
                                     stack.add(neighbor);
 
                             }
@@ -167,13 +167,11 @@ public class Maze extends JFrame {
 
             }
         }
-
-
-    }
-    private int isValid(int x){
+   }
+    private int isValid(int index){
         int valid=0;
-        if (x<rows  && x>=0 ){
-            valid=x;
+        if (index<rows  && index>=0 ){
+            valid=index;
         }
         return valid;
     }
