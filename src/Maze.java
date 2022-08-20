@@ -152,16 +152,16 @@ public class Maze extends JFrame {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 Node currentNode=nodes[i][j];
-                if(isValidIndex(i-1)!=-1){
+                if(isValid(i-1)!=0){
                     currentNode.addNeighbors(nodes[i - 1] [j]);
                 }
-                if(isValidIndex(j - 1)!=-1){
+                if(isValid(j - 1)!=0){
                     currentNode.addNeighbors(nodes[i] [j - 1]);
                 }
-                if (isValidIndex(i+1)!=-1){
+                if (isValid(i+1)!=0){
                     nodes[i][j].addNeighbors(nodes[i + 1] [j]);
                 }
-                if (isValidIndex(j+1)!=-1){
+                if (isValid(j+1)!=0){
                     currentNode.addNeighbors( nodes[i][ j + 1]);
                 }
 
@@ -170,21 +170,12 @@ public class Maze extends JFrame {
 
 
     }
-    private int isValidIndex(int x){
-        int valid=-1;
+    private int isValid(int x){
+        int valid=0;
         if (x<rows  && x>=0 ){
             valid=x;
         }
         return valid;
     }
-
-
-    private boolean isEmpty (Node node) {
-        boolean isWhite= values[node.getRow()][node.getColumn()] == Definitions.EMPTY;
-
-        return isWhite;
-    }
-
-
 
 }
